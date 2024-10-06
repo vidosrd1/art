@@ -1,0 +1,37 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <br />
+    <h3 class="text-4xl block font-medium
+    mt-1 mb-3">
+      <a href="/cats/<%= @cat.id %>",
+      class="nav-link"><%= @cat.name %></a>
+    </h3>
+    <% @cats = Cat.where("country_id = ?",
+    params[:country_id]) %>
+    <hr />
+    <div class="1flex justify-between items-center">
+      <% if user_signed_in? %>
+        <%= link_to "Edit this cat", edit_cat_path(@cat),
+        class: "bg-green-700 mt-1 rounded-lg py-2 px-3
+        text-white 1bg-gray-100 inline-block font-medium" %>
+        <div class="inline-block ml-1">
+          <%= button_to "Destroy this cat", cat_path(@cat), method: :delete,
+          class: "bg-red-600 mt-1 rounded-lg py-2 px-3
+          text-white 1bg-gray-100 font-medium" %>
+        </div>
+      <% end %>
+      <%= link_to "Back to cats", cats_path,
+      class: "bg-gray-500 ml-1 mt-1 rounded-lg py-2 px-3
+      text-white 1bg-gray-100 inline-block font-medium" %>
+      <div class="inline-block ml-1">
+        <%= link_to "New cat", new_cat_path,
+        class: "bg-blue-700 mt-1 rounded-lg py-2 px-3
+        1block inline-block font-medium text-white" %>
+      </div>
+    </div>
+    <br />
+  </div>
+</div>

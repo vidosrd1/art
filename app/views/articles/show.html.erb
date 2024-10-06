@@ -1,0 +1,111 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <br />
+    <div class="1flex justify-between items-center">
+      <% if user_signed_in? %>
+        <%= link_to "Edit this article", edit_article_path(@article),
+        class: "bg-green-700 mt-1 rounded-lg py-2 px-3
+        text-white 1bg-gray-100 inline-block font-medium" %>
+        <div class="inline-block ml-1">
+          <%= button_to "Destroy this article", article_path(@article), method: :delete,
+          class: "bg-red-600 mt-1 rounded-lg py-2 px-3
+          text-white 1bg-gray-100 font-medium" %>
+        </div>
+      <% end %>
+      <%= link_to "Back to articles", articles_path,
+      class: "bg-gray-500 ml-1 mt-1 rounded-lg py-2 px-3
+      text-white 1bg-gray-100 1inline-block font-medium" %>
+      <div class="inline-block ml-1">
+        <%= link_to "New article", new_article_path,
+        class: "bg-blue-700 mt-1 rounded-lg py-2 px-3
+        1block inline-block font-medium text-white" %>
+      </div>
+    </div>
+    <br />
+    <h3 class="block 1font-medium mb-1 text-3xl">
+      <%= @article.title %></h3>
+    <h5 class="dark:text-slate-400 block font-medium mb-1 text-1xl">
+      <%= @article.name %>
+    </h5>
+    <h6>
+      <strong class="block font-medium mb-1">Tags:
+      <% @article.tags.each do |tag| %>
+        <%= link_to tag, style:"text-decoretion:none" do %>
+          <spat class="tag"><%= tag.name.capitalize %></spat>
+        <% end %>
+      <% end %>
+      </strong>
+    </h6>
+    <h6 class="block font-medium mb-1 text-1xl">
+      <time class="block dateline
+      dark:text-slate-400 1text-muted" role="" itemprop="datePublished" datetime="28.03.2023 09:13" data-timestamp="1679987580">
+        <small><%= @article.publish %></small>
+      </time>
+    </h6>
+    <br />
+    <div id="navbar" class="1collapse">
+      <ul class="nav navbar-nav">
+        <li style="width:650px; heigh:auto" class="">
+          <p style="width:650px; heigh:auto">
+          <% if @article.image.attached? %>
+            <%= link_to image_tag(@article.image,
+            style:"width:640px; heigh:auto"), @article.image %>
+          <% end %>
+          </p>
+        </li>
+        <li class="">
+          <p style="width:400px; heigh:200px">
+            <%= @article.body %>
+          </p>
+          <br />
+        </li>
+        <li class="">
+          <% if @article.pictures.attached? %>
+            <% @article.pictures.each do |attachment| %>
+              <% if attachment.image? %>
+                <%= image_tag attachment, width: "200px" %>
+              <% elsif attachment.audio? %>
+                <audio controls>
+                  <source src="<%= rails_blob_url(attachment) %>"
+                    type="<%= attachment.content_type %>" />
+                </audio>
+              <% elsif attachment.video? %>
+                <video controls width="720">
+                  <source src="<%= rails_blob_url(attachment) %>"
+                    type="<%= attachment.content_type %>" />
+                </video>
+              <% else %>
+                <%= link_to attachment.filename,
+                rails_blob_path(attachment, disposition: "attachment") %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class="1flex justify-between items-center">
+      <% if user_signed_in? %>
+        <%= link_to "Edit this article", edit_article_path(@article),
+        class: "bg-green-700 mt-1 rounded-lg py-2 px-3
+        text-white 1bg-gray-100 inline-block font-medium" %>
+        <div class="inline-block ml-1">
+          <%= button_to "Destroy this article", article_path(@article), method: :delete,
+          class: "bg-red-600 mt-1 rounded-lg py-2 px-3
+          text-white 1bg-gray-100 font-medium" %>
+        </div>
+      <% end %>
+      <%= link_to "Back to articles", articles_path,
+      class: "bg-gray-500 ml-1 mt-1 rounded-lg py-2 px-3
+      text-white 1bg-gray-100 1inline-block font-medium" %>
+      <div class="inline-block ml-1">
+        <%= link_to "New article", new_article_path,
+        class: "bg-blue-700 mt-1 rounded-lg py-2 px-3
+        1block inline-block font-medium text-white" %>
+      </div>
+    </div>
+    <br />
+  </div>
+</div>

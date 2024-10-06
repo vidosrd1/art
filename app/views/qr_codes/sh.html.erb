@@ -1,0 +1,42 @@
+
+    <%= link_to "Edit this qr code", edit_qr_code_path(@qr_code), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Back to qr codes", qr_codes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to "Destroy this qr code",
+      @qr_code, method: :delete,
+      class: "mt-2 rounded-lg py-3 px-5 bg-gray-100
+      font-medium" %>
+    </div>
+    <div class="1flex justify-between items-center">
+      <% if user_signed_in? %>
+        <%= link_to "Edit this qr code", edit_qr_code_path(@qr_code),
+        class: "bg-green-700 mt-1 rounded-lg py-2 px-3
+        text-white bg-gray-100 inline-block font-medium" %>
+        <div class="inline-block ml-1">
+          <%= button_to "Destroy this qr code",
+          @qr_code, method: :delete,
+          class: "bg-red-600 mt-2 rounded-lg py-3 px-5
+          bg-gray-100 font-medium" %>
+        </div>
+      <% end %>
+      <%= link_to "Back to posts", posts_path,
+      class: "bg-gray-500 ml-1 rounded-lg py-2 px-3
+      text-white 1bg-gray-100 inline-block font-medium" %>
+      <div class="inline-block ml-1">
+        <%= link_to "New post", new_post_path,
+        class: "bg-blue-700 mt-1 rounded-lg py-2 px-3
+        1block inline-block font-medium text-white" %>
+      </div>
+    </div>
+    <br />
+
+<p style="width:650px; heigh:auto">
+</p>
+
+<%= render @qr_code %>
+
+    <p class="my-5">
+    <strong class="block font-medium mb-2">Url:</strong>
+    <%= qr_code.url %>
+    <%= image_tag qr_code.logo %>
+    </p>

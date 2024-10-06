@@ -1,0 +1,6 @@
+<%# app/views/layouts/_dark_mode_check.html.erb #%>
+<script>
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  }
+</script>

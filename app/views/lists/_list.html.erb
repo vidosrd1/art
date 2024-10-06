@@ -1,0 +1,23 @@
+<div id="<%= dom_id list %>">
+  <p>
+    <strong>Title:</strong>
+    <%= link_to list.title, list_path(list),
+    class: "text-orange-600 underline hover:text-orange-700" %>
+  </p>
+  <p>
+    <strong>Name:</strong>
+    <%= link_to list.name, list_path(list),
+    class: "text-orange-600 underline hover:text-orange-700" %>
+  </p>
+  <hr />
+  <% if list.image.content_type.in?(%w[image/jpeg image/png image/jpg]) %>
+    <%= link_to image_tag(list.image,
+    style:"width:300px, height:300px"), list.image %>
+  <% end %>
+  <hr />
+  <p>
+    <strong>Publish:</strong>
+    <%= list.publish %>
+  </p>
+  <%= list.body %>
+</div>

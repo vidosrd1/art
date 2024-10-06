@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div class="1collapse navbar-collapse flex justify-between items-center" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item1">
+          <h6>
+            <strong class="block font-medium mb-1">
+              <a href="/tags/<%= @taggable.id %>",
+              class="nav-link"><%= @taggable.name %></a>
+            </strong>
+          </h6>
+        </li>
+        <li class="nav-item">
+          <h5>
+            <strong class="block font-medium mb-1">
+              <a href="/tags/<%= @tags.last.id %>",
+              class="nav-link"><%= @tags.last.name %></a>
+            </strong>
+          </h5>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

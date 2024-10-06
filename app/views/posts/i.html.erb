@@ -1,0 +1,19 @@
+<%= form.submit 'Search', class: "px-4 py-2 font-medium
+bg-orange-400 text-neutal-900 rounded flex items-center
+cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0
+focus:ring-orange-100" %>
+<%= link_to "Show this post", @post, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<%= link_to "Back to posts", posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<div class="col-4 col-sm-4 col-md-3 col-lg-3 clearfix">
+  <% if list.image.attached? %>
+    <%= link_to image_tag(list.image,
+    style:"width:270px; heigh:auto"), list.image %>
+  <% end %>
+</div>
+<% if @pagy.count > @pagy.items %>
+<div class="mt-10">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+<hr />
+<% end %>
+<%= render @posts %>

@@ -1,0 +1,51 @@
+<%= form.submit 'Search', class: "px-4 py-2 font-medium
+bg-orange-400 text-neutal-900 rounded flex items-center
+cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0
+focus:ring-orange-100" %>
+
+  <%= link_to "Show this cat", @cat, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Back to cats", cats_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<h1 class="font-bold text-4xl">Categos</h1>
+<%= link_to "New cat", new_cat_path,
+class: "rounded-lg py-3 px-5 bg-blue-600
+text-white block font-medium" %>
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+  <li><a href="#">Sports</a></li>
+  <li><a href="#">Pop Culture</a></li>
+  <li><a href="#">Tazos</a></li>
+  <li><a href="#">Woolworths Collectibles</a></li>
+  </ul>
+</div>
+<%= render @cats %>
+<select id="cat" name="cat_id">
+  <% @cats.each do |cat| %>
+    <option value="<%= cat.id %>">
+      <%= cat.name %>
+    </option>
+  <% end %>
+</select>
+<select id="subcat" name="subcat_id" disabled></select>
+<%= select_tag "parent_cat",
+  options_from_collection_for_select(
+  @cats, "id", "name"), :prompt => "Select a parent cat",
+  :onchange => "update_subscategos_div(this.value)" %>
+<div id="versionsDiv">
+</div>
+<hr />
+<% @cats.each do |cat| %>
+<table>
+<tr>
+  <td>
+    <h5>
+      <strong class="block font-medium mb-1">
+        <a href="/cats/<%= cat.id %>",
+        class="nav-link"><%= cat.name %></a>
+      </strong>
+    </h5>
+  </td>
+</tr>
+<% end %>
+</table>

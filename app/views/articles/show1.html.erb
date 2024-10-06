@@ -1,0 +1,95 @@
+<br />
+<% if user_signed_in? %>
+<div>
+  <%= link_to "Edit this article", edit_article_path(@article) %> |
+  <%= link_to "Back to articles", articles_path %>
+</div>
+<% end %>
+<br />
+<div class="flex justify-between items-center">
+  <%= link_to 'New article', new_article_path,
+  class: "rounded-lg py-3 px-5 bg-blue-600
+  text-white block font-medium" %>
+</div>
+<hr />
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <h3><%= @article.title %></h3>
+    <h6><small><%= @article.name %></small></h6>
+    <h5>
+      <% if !@tags.nil? %>
+        <% @tags.each  do |tags| %>
+          <div style="margin-top:15px; margin-left:8px">
+            <%= link_to tags.name, "/path1" %>
+          </div>
+        <% end%>
+      <% end %>
+      <strong class="block font-medium mb-1">Tags:</strong>
+      <% @article.tags.each do |tag| %>
+        <%= link_to tag, style:"text-decoretion:none" do %>
+          <spat class="tag"><%= tag.name.capitalize %></spat>
+        <% end %>
+      <% end %>
+    </h5>
+    <time class="dateline text-muted" role="" itemprop="datePublished" datetime="28.03.2023 09:13" data-timestamp="1679987580">
+      <small><%= @article.publish %></small>
+    </time>
+    <div id="navbar" class="1collapse">
+      <ul class="nav navbar-nav">
+        <li style="width:650px; heigh:auto" class="">
+          <p style="width:650px; heigh:auto">
+          <% if @article.image.attached? %>
+            <%= link_to image_tag(@article.image,
+            style:"width:640px; heigh:auto"), @article.image %>
+          <% end %>
+          </p>
+        <li><hr /></li>
+        <li class="">
+          <p style="width:400px; heigh:200px">
+            <%= @article.body %>
+          </p>
+        </li>
+        <li class="">
+          <% if @article.pictures.attached? %>
+            <% @article.pictures.each do |attachment| %>
+              <% if attachment.image? %>
+                <%= image_tag attachment, width: "200px" %>
+              <% elsif attachment.audio? %>
+                <audio controls>
+                  <source src="<%= rails_blob_url(attachment) %>"
+                    type="<%= attachment.content_type %>" />
+                </audio>
+              <% elsif attachment.video? %>
+                <video controls width="720">
+                  <source src="<%= rails_blob_url(attachment) %>"
+                    type="<%= attachment.content_type %>" />
+                </video>
+              <% else %>
+                <%= link_to attachment.filename,
+                rails_blob_path(attachment, disposition: "attachment") %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <hr />
+    <div class="flex justify-between items-center">
+    <% if user_signed_in? %>
+      <%= link_to 'Edit this article', edit_article_path(@article), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <div class="inline-block ml-2">
+        <%= button_to 'Destroy this article', article_path(@article), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      </div>
+    <% end %>
+      <br />
+      <%= link_to 'New article', new_article_path,
+      class: "rounded-lg bg-blue-600
+      text-white block font-medium" %> |
+      <%= link_to 'Back to articles', articles_path %>
+    </div>
+    <br />
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="container-fluid">
+    <div class="1collapse navbar-collapse flex justify-between items-center" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% @tags.each do |tag| %>
+        <li class="nav-item">
+          <h6>
+            <strong class="block font-medium mb-1">
+              <a href="/tags/<%= tag.id %>",
+              class="nav-link"><span lang="ba">
+                <%= tag.name %></span></a>
+            </strong>
+          </h6>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

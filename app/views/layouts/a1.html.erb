@@ -1,0 +1,69 @@
+ 1.453-1.191
+1s1.219-.45 1.559-1c.34-.55-.084-1-.941-1S46 84.45 46  2.049-1.382.611-1.382-.518
+1.989c-.35.566.051.734.941.393 1.732-.665  0-1.216.445-1.552.989
+
+ 1.969.955 1.546 2.195 1.068
+ 2.752-1.061.287-1.1.452-1.986.366-1.97-.086.017-.953.495-1.927 1.062
+ <body class="h-full font-sans antialiased
+ dark:text-slate-300 font-normal leading-normal
+ dark:bg-slate-900 dark:text-slate-500
+ bg-gray-50 bg-neutral-100 dark:bg-neutral-900">
+   <header class="1bg-white
+   dark:bg-slate-800
+   dark:text-slate-50 text-slate-500
+   dark:text-slate-400 p-4 flex items-center justify-around">
+     <h1 class="text-slate-900 dark:text-white
+     font-bold text-4xl">Tamni mod</h1>
+
+     <nav class="space-x-1">
+       <a class="text-orange-500 1nav-link active"
+       aria-current="page" href="/home/index">Home</a>
+       <%= link_to 'Arts', arts_path,
+       class: "text-orange-500 1nav-link" %>
+       <%= link_to 'Lists', lists_path,
+       class: "text-orange-500 1nav-link" %>
+       <%= link_to 'Cats', cats_path,
+       class: "text-orange-500 1nav-link" %>
+       <%= link_to 'Posts', posts_path,
+       class: "text-orange-500 1nav-link" %>
+       <% if user_signed_in? %>
+         <%= link_to 'Tags', tags_path,
+         class: "text-orange-500 1nav-link" %>
+         <%= link_to 'Articles', articles_path,
+         class: "text-orange-500 1nav-link" %>
+       <% end %>
+     </nav>
+
+     <div class="flex space-x-1">
+       <div data-controller="dark-mode">
+         <%= image_tag("icons/_VS2.svg",
+         class: 'w-24 h-20 hover:cursor-pointer',
+         data: { action: 'click->dark-mode#toggle'}) %>
+       </div>
+       <div data-controller="dark-mode">
+       <ul class="1nav-link 1dropdown-menu">
+         <% if user_signed_in? %>
+         <li class="1nav-link 1dropdown-item">
+           <%= link_to "Hi, #{current_user.email}",
+            edit_user_registration_path, class:'nav-link' %>
+          </li>
+          <li class="1nav-link 1dropdown-item">
+           <%= button_to(
+             "Log Out",
+             destroy_user_session_path,
+             method: :delete
+           ) %>
+         <% else %>
+         <li>
+           <%= link_to "Sign In",
+            new_user_session_path, class:'nav-link' %>
+         </li>
+         <li>
+           <%= link_to "Sign Up",
+            new_user_registration_path, class:'nav-link' %>
+         </li>
+         <% end %>
+       </ul>
+       </div>
+     </div>
+   </header>

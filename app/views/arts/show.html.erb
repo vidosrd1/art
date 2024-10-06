@@ -1,0 +1,76 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <br />
+    <div class="flex justify-between items-center">
+      <% if user_signed_in? %>
+        <%= link_to "Edit this art", edit_art_path(@art),
+        class: "bg-green-700 mt-1 rounded-lg py-2 px-3
+        text-white 1bg-gray-100 inline-block font-medium" %>
+        <div class="inline-block ml-1">
+          <%= button_to "Destroy this art", art_path(@art), method: :delete,
+          class: "bg-red-600 mt-1 rounded-lg py-2 px-3
+          text-white 1bg-gray-100 font-medium" %>
+        </div>
+      <% end %>
+      <%= link_to "Back to arts", arts_path,
+      class: "bg-gray-500 ml-1 mt-1 rounded-lg py-2 px-3
+      text-white 1bg-gray-100 1inline-block font-medium" %>
+      <div class="inline-block ml-1">
+        <%= link_to "New art", new_art_path,
+        class: "bg-blue-700 mt-1 rounded-lg py-2 px-3
+        1block inline-block font-medium text-white" %>
+      </div>
+    </div>
+    <br />
+    <h3 class="text-4xl block font-medium
+    mt-1 mb-3">
+      <a href="/arts/<%= @art.id %>",
+      class="nav-link"><%= @art.name %></a>
+    </h3>
+    <div>
+      <% @art.lists.each do |n| %>
+      <div class="row mt-4 clearfix">
+        <div class="col-8 col-sm-8 col-md-9 col-lg-9">
+        <strong class="block 1font-medium mb-1">
+          <a href="/lists/<%= n.id %>",
+          class="nav-link"><%= n.title %></a>
+        </strong>
+        <%= truncate(strip_tags(n.body.to_s), length:120) %>
+        </div>
+        <div class="col-4 col-sm-4 col-md-3 col-lg-3 clearfix">
+        <% if n.image.attached? %>
+          <%= link_to image_tag(n.image,
+          style:"width:100px; heigh:auto; nav-link; nav-right;"),
+          n.image %>
+        <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <br />
+    <div class="flex justify-between items-center">
+      <% if user_signed_in? %>
+        <%= link_to "Edit this art", edit_art_path(@art),
+        class: "bg-green-700 mt-1 rounded-lg py-2 px-3
+        text-white 1bg-gray-100 inline-block font-medium" %>
+        <div class="inline-block ml-1">
+          <%= button_to "Destroy this art", art_path(@art), method: :delete,
+          class: "bg-red-600 mt-1 rounded-lg py-2 px-3
+          dark:text-white dark:text-slate-400 1bg-gray-100 font-medium" %>
+        </div>
+      <% end %>
+      <%= link_to "Back to arts", arts_path,
+      class: "bg-gray-500 ml-1 mt-1 rounded-lg py-2 px-3
+      text-white 1bg-gray-100 1inline-block font-medium" %>
+      <div class="inline-block ml-1">
+        <%= link_to "New art", new_art_path,
+        class: "bg-blue-700 mt-1 rounded-lg py-2 px-3
+        1block inline-block font-medium text-white" %>
+      </div>
+    </div>
+    <br />
+  </div>
+</div>

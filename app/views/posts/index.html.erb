@@ -1,0 +1,58 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <br />
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Posts</h1>
+    <% if user_signed_in? %>
+      <%= link_to 'New post', new_post_path,
+      class: "rounded-lg py-3 px-4 bg-blue-600
+      text-white block font-medium" %>
+    <% end %>
+  </div>
+  <hr />
+  <%= form_with(url: posts_path, method: :get,
+  data: {controller: "search-form",
+  turbo_frame: "posts", turbo_action: "advance"}) do |form| %>
+    <%= form.label :query, "Search by cat name:",
+    class: "block mb-2" %>
+    <div class="flex space-x-3">
+      <%= form.text_field :query, class: "py-2 px-4
+      rounded border ring-0 focus:ring-4
+      focus:ring-orange-100 focus:shadow-none
+      dark:text-slate-800 focus:border-orange-500 focus:outline-none",
+      data: {action: "input->search-form#search"} %>
+
+      <%= form.submit 'Search', class: "px-4 py-2 font-medium
+      bg-orange-400 text-neutal-900 rounded flex items-center
+      cursor-pointer hover:bg-orange-600 focus:ring-4 ring-0
+      text-gray-900 hover:text-gray-100 focus:ring-orange-100" %>
+    </div>
+  <% end %>
+  <hr />
+  <% if @pagy.count > @pagy.items %>
+  <div class="mt-10">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+  <hr />
+  <% end %>
+  <div id="posts" class="min-w-full">
+    <% @posts.each do |post| %>
+    <div class="row mt-4 clearfix">
+      <div class="col-8 col-sm-8 col-md-9 col-lg-9">
+        <h5 class="mt-0 mb-1">
+          <a href="/posts/<%= post.id %>",
+          class="nav-link"><%= post.title %></a>
+        </h5>
+      <strong class="block 1font-medium mb-1">
+        <a href="/cats/<%= post.cat.id %>",
+        class="nav-link">Cat: <%= post.cat.name %></a>
+      </strong>
+        <%= truncate(strip_tags(post.body.to_s), length:180) %>
+      </div>
+    </div>
+    <% end %>
+    <hr />
+  </div>
+</div>

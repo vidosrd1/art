@@ -1,0 +1,27 @@
+function update_subscategories_div(parent_id) {
+  jQuery.ajax({
+    url: "/get_subscategories",
+    type: "GET",
+    data: {"parent_id" : parent_id},
+    dataType: "html"
+    success: function(data) {
+      jQuery("#versionsDiv").html(data);
+    }
+  });
+}
+function update_substags_div(parent_id) {
+  jQuery.ajax({
+    url: "/get_substags",
+    type: "GET",
+    data: {"parent_id" : parent_id},
+    dataType: "html"
+    success: function(data) {
+      jQuery("#versionsDiv").html(data);
+    }
+  });
+}
+
+const buttonGroupElement = document
+  .querySelector("trix-editor")
+  .toolbarElement.querySelector("[data-trix-button-group=file-tools]");
+buttonGroupElement.insertAdjacentHTML("beforeend", buttonHTML);

@@ -1,0 +1,27 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <br />
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Blogs</h1>
+    <%= link_to "New blog", new_blog_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+  <hr />
+  <div id="blogs" class="min-w-full">
+    <% @blogs.each do |blog| %>
+    <div class="row  mt-4 clearfix">
+      <div class="col-8 col-sm-8 col-md-9 col-lg-9">
+        <h5 class="mt-0 mb-1">
+          <a href="/blogs/<%= blog.id %>",
+          class="nav-link"><%= blog.title %></a>
+        </h5>
+        <a href="/blogs/<%= blog.id %>",
+        class="nav-link"><%= blog.name %></a>
+        <%= truncate(strip_tags(blog.body.to_s), length:180) %>
+      </div>
+    </div>
+    <% end %>
+    <hr />
+  </div>
+</div>

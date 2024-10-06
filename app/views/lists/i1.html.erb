@@ -1,0 +1,27 @@
+<div class="my-5">
+  <%= form.label :publish, style: "display: block" %>
+  <%= form.date_field :publish,
+  class: "block shadow rounded-md 1border border-gray-200
+  dark:text-slate-800 outline-none px-3 py-2 mt-2 1w-full" %>
+</div>
+
+      <%= form.submit 'Search', class: "px-4 py-2 font-medium
+bg-orange-400 text-neutal-900 rounded flex items-center
+cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0
+focus:ring-orange-100" %>
+<%= link_to "Show this list", @list %> |
+<%= link_to "Back to lists", lists_path %>
+<p style="color: green"><%= notice %></p>
+
+<h1>Lists</h1>
+
+<div id="lists">
+  <% @lists.each do |list| %>
+    <%= render list %>
+    <p>
+      <%= link_to "Show this list", list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New list", new_list_path %>

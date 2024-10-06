@@ -1,0 +1,25 @@
+<%= form.submit 'Search', class: "px-4 py-2 font-medium
+bg-orange-400 text-neutal-900 rounded flex items-center
+cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0
+focus:ring-orange-100" %>
+<% if @articles.first.title? %>
+<% end %>
+<div class="js-user-list-create-dialog-template"
+data-label="Create list">
+</div>
+
+<div class="flex justify-between items-center">
+  <%= link_to 'New article', new_article_path,
+  class: "rounded-lg py-3 px-4 bg-blue-600
+  text-white block font-medium" %>
+</div>
+<hr />
+<div id="tag_cloud">
+  <% tag_cloud Article.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.id), #name),
+    class: css_class %>
+  <% end %>
+</div>
+Tag: <%= " Related count: (#{tag.articles.count}) " %>
+tag.to_s +
+<%= render @articles %>

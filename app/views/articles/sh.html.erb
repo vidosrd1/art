@@ -1,0 +1,52 @@
+Art: <%= @article.tag.name %>
+<div class="flex justify-between items-center">
+<% if user_signed_in? %>
+  <%= link_to 'Edit this article', edit_article_path(@article),
+  class: "mt-2 rounded-lg py-2 px-4 bg-gray-100 inline-block font-medium" %>
+  <div class="inline-block ml-2">
+    <%= button_to 'Destroy this article', article_path(@article), method: :delete,
+    class: "mt-2 rounded-lg py-2 px-4 bg-gray-100 font-medium" %>
+  </div>
+<% end %>
+  <%= link_to 'Back to articles', articles_path,
+  class: "ml-2 rounded-lg py-2 px-4 bg-gray-100 inline-block font-medium" %>
+  <div class="inline-block ml-2">
+    <%= link_to "New article", new_article_path,
+    class: "rounded-lg py-2 px-4 bg-blue-600 text-white block font-medium" %>
+  </div>
+</div>
+
+<div class="flex justify-between items-center">
+<% if user_signed_in? %>
+  <%= link_to 'Edit this list', edit_list_path(@list), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="inline-block ml-2">
+    <%= button_to 'Destroy this list', list_path(@list), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+  </div>
+<% end %>
+  <%= link_to 'Back to lists', lists_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="inline-block ml-2">
+    <%= link_to "New list", new_list_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+</div>
+<% if user_signed_in? != admin_signed_in? %>
+<% if admin_signed_in? %>
+<div>
+  <%= link_to "Edit this article", edit_article_path(@article) %> |
+  <%= link_to "Back to articles", articles_path %>
+</div>
+<% end %>
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <%= render @article %>
+
+    <%= link_to "Edit this article", edit_article_path(@article), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to "Destroy this article", article_path(@article), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>
+    <%= link_to "Back to articles", articles_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <br />
+    <div class="1flex justify-between items-center">
+      <% if user_signed_in? %>
+        <%= link_to "Edit this tag", edit_tag_path(@tag),
+        class: "bg-green-700 mt-1 rounded-lg py-2 px-3
+        text-white 1bg-gray-100 inline-block font-medium" %>
+        <div class="inline-block ml-1">
+          <%= button_to "Destroy this tag", tag_path(@tag), method: :delete,
+          class: "bg-red-600 mt-1 rounded-lg py-2 px-3
+          text-white 1bg-gray-100 font-medium" %>
+        </div>
+      <% end %>
+      <%= link_to "Back to tags", tags_path,
+      class: "bg-gray-500 ml-1 mt-1 rounded-lg py-2 px-3
+      text-white 1bg-gray-100 1inline-block font-medium" %>
+      <div class="inline-block ml-1">
+        <%= link_to "New tag", new_tag_path,
+        class: "bg-blue-700 mt-1 rounded-lg py-2 px-3
+        1block inline-block font-medium text-white" %>
+      </div>
+    </div>
+    <br />
+    <h3><%= @tag.name %></h3>
+    <div>
+      <% @tag.articles.each do |n| %>
+      <div class="row  mt-4 clearfix">
+        <div class="col-8 col-sm-8 col-md-9 col-lg-9">
+        <strong class="block font-medium mb-1">
+          <a href="/articles/<%= n.id %>",
+          class="nav-link"><%= n.title %></a>
+        </strong>
+        <%= truncate(strip_tags(n.body.to_s), length:120) %>
+        </div>
+        <div class="col-4 col-sm-4 col-md-3 col-lg-3 clearfix">
+        <% if n.image.attached? %>
+          <%= link_to image_tag(n.image,
+          style:"width:100px; heigh:auto; nav-link; nav-right;"),
+          n.image %>
+        <% end %>
+        </div>
+      </div>
+      <hr />
+      <% end %>
+    </div>
+    <div class="1flex justify-between items-center">
+      <% if user_signed_in? %>
+        <%= link_to "Edit this tag", edit_tag_path(@tag),
+        class: "bg-green-700 mt-1 rounded-lg py-2 px-3
+        text-white 1bg-gray-100 inline-block font-medium" %>
+        <div class="inline-block ml-1">
+          <%= button_to "Destroy this tag", tag_path(@tag), method: :delete,
+          class: "bg-red-600 mt-1 rounded-lg py-2 px-3
+          text-white 1bg-gray-100 font-medium" %>
+        </div>
+      <% end %>
+      <%= link_to "Back to tags", tags_path,
+      class: "bg-gray-500 ml-1 mt-1 rounded-lg py-2 px-3
+      text-white 1bg-gray-100 1inline-block font-medium" %>
+      <div class="inline-block ml-1">
+        <%= link_to "New tag", new_tag_path,
+        class: "bg-blue-700 mt-1 rounded-lg py-2 px-3
+        1block inline-block font-medium text-white" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+        <%= form.submit 'Search', class: "px-4 py-2 font-medium
+  bg-orange-600 text-neutal-900 rounded flex items-center
+  cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0
+  focus:ring-orange-100" %>
+<%= link_to "Show this tag", @tag,
+class: "ml-2 rounded-lg py-3 px-5 bg-gray-100
+inline-block font-medium" %>
+<%= link_to "Back to tags", tags_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<div class="flex justify-between items-center">
+  <%= link_to 'New tag', new_tag_path,
+  class: "rounded-lg py-3 px-4 bg-blue-600
+  text-white block font-medium" %>
+</div>
+<hr />
+<%= render 'tags/article' %>
+<br />
+
+<%= select_tag "parent_tag",
+options_from_collection_for_select(@tags, "id", "name"),
+:prompt => "Select a parent tag",
+:onchange => "update_substags_div(this.value)",
+class:"dark:text-slate-800" %>
+<div id="versionsDiv">
+</div>
+
+<% if user_signed_in? && admin_signed_in? %>
+<%= render @tags %>
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Tags</h1>
+    <%= link_to "New tag", new_tag_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>

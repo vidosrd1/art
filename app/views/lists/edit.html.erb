@@ -1,0 +1,25 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl">Editing list</h1>
+
+  <div class="1flex justify-between items-center">
+    <% if user_signed_in? %>
+      <%= render "form", list: @list,
+      class: "bg-green-700 mt-1 rounded-lg py-2 px-3
+      text-white bg-gray-100 inline-block font-medium" %>
+    <% end %>
+    <br />
+    <%= link_to "Show this list", @list,
+    class: "ml-2 rounded-lg py-2 px-3 bg-gray-100
+    1dark:text-white dark:text-slate-800  inline-block font-medium" %>
+    <%= link_to "Back to posts", lists_path,
+    class: "bg-gray-500 ml-1 mt-1 rounded-lg py-2 px-3
+    dark:text-white dark:text-slate-800 1bg-gray-100
+    inline-block font-medium" %>
+    <div class="inline-block ml-1">
+      <%= link_to "New list", new_list_path,
+      class: "bg-blue-700 mt-1 rounded-lg py-2 px-3
+      1block inline-block font-medium text-white" %>
+    </div>
+    <br /><hr />
+  </div>
+</div>

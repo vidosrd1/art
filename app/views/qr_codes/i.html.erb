@@ -1,0 +1,13 @@
+<p class="my-5">
+  <strong class="block font-medium mb-2">Url:
+<%= qr_code.url %></strong>
+<%= image_tag qr_code.logo %>
+</p>
+<p>
+  <%= link_to "Show this qr code", qr_code, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+</p>
+
+<div id="qr_codes" class="min-w-full">
+<% @qr_codes.each do |qr_code| %>
+<% end %>
+<%= render qr_code %>

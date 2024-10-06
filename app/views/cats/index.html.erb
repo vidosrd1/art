@@ -1,0 +1,68 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <br />
+  <div class="flex justify-between items-center">
+    <h1 class="dark:text-slate-400 font-bold text-4xl">
+      Categoss</h1>
+    <% if user_signed_in? %>
+      <%= link_to 'New cat', new_cat_path,
+      class: "rounded-lg py-3 px-4 bg-blue-600
+      text-white block font-medium" %>
+    <% end %>
+  </div>
+  <hr />
+  <%= form_with(url: cats_path, method: :get,
+  data: {controller: "search-form",
+  turbo_frame: "cats", turbo_action: "advance"}) do |form| %>
+    <%= form.label :query, "Search by cat name:",
+    class: "block mb-2" %>
+    <div class="flex space-x-3">
+      <%= form.text_field :query, class: "py-2 px-4
+      rounded border ring-0 focus:ring-4
+      focus:ring-orange-100 focus:shadow-none
+      dark:text-slate-800 focus:border-orange-500 focus:outline-none",
+      data: {action: "input->search-form#search"} %>
+
+      <%= form.submit 'Search', class: "px-4 py-2 font-medium
+      bg-orange-400 text-neutal-900 rounded flex items-center
+      cursor-pointer hover:bg-orange-600 focus:ring-4 ring-0
+      text-gray-900 hover:text-gray-100 focus:ring-orange-100" %>
+    </div>
+  <% end %>
+  <hr />
+  <div id="cats" class="min-w-full">
+    <select id="cat" class="dark:bg-slate-800 dark:text-white" name="cat_id">
+      <% @cats.each do |cat| %>
+        <option value="<%= cat.id %>">
+          <%= cat.name %>
+        </option>
+      <% end %>
+    </select>
+    <select id="subcat" name="subcat_id" disabled
+    class="dark:bg-slate-800 dark:text-white"></select>
+    <%= select_tag "parent_cat",
+      options_from_collection_for_select(
+      @cats, "id", "name"), :prompt => "Select a parent cat",
+      :onchange => "update_subscategos_div(this.value)",
+      class:"dark:bg-slate-800 dark:text-white" %>
+    <div id="versionsDiv">
+    </div>
+    <hr />
+    <% @cats.each do |cat| %>
+    <table>
+    <tr>
+      <td>
+        <h5>
+          <strong class="block font-medium mb-1">
+            <a href="/cats/<%= cat.id %>",
+            class="nav-link"><%= cat.name %></a>
+          </strong>
+        </h5>
+      </td>
+    </tr>
+    <% end %>
+    </table>
+  </div>
+</div>
