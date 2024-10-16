@@ -21,7 +21,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem 'mini_magick', '~> 5.0', '>= 5.0.1'
 #gem "image_processing", "~> 1.12"
-gem 'tailwindcss-rails', '~> 2.3'
+gem 'tailwindcss-rails', '~> 3.0'
 gem 'pagy', '~> 8.4'
 gem 'administrate', '~> 0.20.1'
 gem 'devise', '~> 4.9', '>= 4.9.3'
