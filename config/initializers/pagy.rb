@@ -168,7 +168,7 @@ require 'pagy/extras/bootstrap'
 
 # Items extra: Allow the client to request a custom number of items per page with an optional selector UI
 # See https://ddnexus.github.io/pagy/docs/extras/items
-require 'pagy/extras/items'
+#require 'pagy/extras/items'
 # set to false only if you want to make :items_extra an opt-in variable
 # Pagy::DEFAULT[:items_extra] = false    # default true
 Pagy::DEFAULT[:items_param] = :items   # default

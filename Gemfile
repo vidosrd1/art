@@ -7,13 +7,13 @@ ruby "3.3.1"
 gem 'rails', '~> 7.2.1.1', '>= 7.2.1'
 #gem 'rails', '~> 7.2'
 gem "sprockets-rails"
-gem "sqlite3", "~> 1.4"
-gem "puma", ">= 5.0"
+gem 'sqlite3', '~> 2.1'
+gem 'puma', '~> 6.4', '>= 6.4.3'
 gem "jsbundling-rails"
-gem "turbo-rails"
+gem 'turbo-rails', '~> 2.0', '>= 2.0.11'
 gem "stimulus-rails"
 gem "cssbundling-rails"
-gem "jbuilder"
+gem 'jbuilder', '~> 2.13'
 # gem "redis", ">= 4.0.1"
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"
@@ -22,7 +22,7 @@ gem "bootsnap", require: false
 gem 'mini_magick', '~> 5.0', '>= 5.0.1'
 #gem "image_processing", "~> 1.12"
 gem 'tailwindcss-rails', '~> 3.0'
-gem 'pagy', '~> 8.4'
+gem 'pagy', '~> 9.1'
 gem 'administrate', '~> 0.20.1'
 gem 'devise', '~> 4.9', '>= 4.9.3'
 gem 'ancestry'
@@ -47,7 +47,8 @@ gem 'rqrcode', '~> 2.2'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
-  gem "brakeman", require: false
+  gem 'brakeman', '~> 6.2', '>= 6.2.1'
+  #gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
 end
 group :development do
@@ -66,5 +67,5 @@ group :test do
   gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
 end
 group :production do
-  gem 'pg', '~> 1.5', '>= 1.5.6'
+  gem 'pg', '~> 1.5', '>= 1.5.8'
 end

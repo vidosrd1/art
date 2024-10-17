@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../javascript/administrate-rich-text.js.txt"],
+  "sourcesContent": ["import \"trix\";\nimport \"@rails/actiontext\";"],
+  "mappings": ";;AAAA;",
+  "names": []
+}
