@@ -47,7 +47,7 @@ gem 'rqrcode', '~> 2.2'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
-  gem 'brakeman', '~> 6.2', '>= 6.2.1'
+  gem 'brakeman', '~> 6.2'
   #gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
 end
