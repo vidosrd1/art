@@ -98,7 +98,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
-    brakeman (6.2.1)
+    brakeman (6.2.2)
       racc
     builder (3.3.0)
     byebug (11.1.3)
@@ -452,7 +452,7 @@ DEPENDENCIES
   appraisal
   bcrypt
   bootsnap
-  brakeman (~> 6.2, >= 6.2.1)
+  brakeman (~> 6.2)
   byebug
   capybara
   cssbundling-rails
