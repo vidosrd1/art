@@ -375,12 +375,12 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sqlite3 (2.1.0-aarch64-linux-gnu)
-    sqlite3 (2.1.0-arm-linux-gnu)
-    sqlite3 (2.1.0-arm64-darwin)
-    sqlite3 (2.1.0-x86-linux-gnu)
-    sqlite3 (2.1.0-x86_64-darwin)
-    sqlite3 (2.1.0-x86_64-linux-gnu)
+    sqlite3 (2.2.0-aarch64-linux-gnu)
+    sqlite3 (2.2.0-arm-linux-gnu)
+    sqlite3 (2.2.0-arm64-darwin)
+    sqlite3 (2.2.0-x86-linux-gnu)
+    sqlite3 (2.2.0-x86_64-darwin)
+    sqlite3 (2.2.0-x86_64-linux-gnu)
     standard (1.41.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -480,7 +480,7 @@ DEPENDENCIES
   selenium-webdriver
   simplecov
   sprockets-rails
-  sqlite3 (~> 2.1)
+  sqlite3 (~> 2.2)
   standardrb
   stimulus-rails
   tailwindcss-rails (~> 3.0)
