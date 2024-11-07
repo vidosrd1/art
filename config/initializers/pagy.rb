@@ -169,16 +169,17 @@ require 'pagy/extras/bootstrap'
 # Items extra: Allow the client to request a custom number of items per page with an optional selector UI
 # See https://ddnexus.github.io/pagy/docs/extras/items
 #require 'pagy/extras/items'
+require 'pagy/extras/pagy'
 # set to false only if you want to make :items_extra an opt-in variable
 # Pagy::DEFAULT[:items_extra] = false    # default true
 Pagy::DEFAULT[:items_param] = :items   # default
 Pagy::DEFAULT[:max_items]   = 100      # default
-
+#Pagy::VARS[:max_items] = 50
 # Overflow extra: Allow for easy handling of overflowing pages
 # See https://ddnexus.github.io/pagy/docs/extras/overflow
 require 'pagy/extras/overflow'
 Pagy::DEFAULT[:overflow] = :last_page#:empty_page    # default  (other options: :last_page and :exception)
-
+#Pagy::VARS[:overflow] = :exception
 # Support extra: Extra support for features like: incremental, infinite, auto-scroll pagination
 # See https://ddnexus.github.io/pagy/docs/extras/support
 # require 'pagy/extras/support'

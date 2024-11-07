@@ -1,13 +1,14 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.1"
+#gem 'rake'
+#ruby "3.3.1"
 #gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 #gem "rails", "~> 7.2.0.beta2"
-gem 'rails', '~> 7.2.1.1', '>= 7.2.1'
-#gem 'rails', '~> 7.2'
-gem "sprockets-rails"
-gem 'sqlite3', '~> 2.1'
+#gem 'rails', '~> 7.2.1.1', '>= 7.2.1'
+gem 'rails', '~> 7.2'
+#gem "sprockets-rails"
+gem 'sqlite3', '~> 2.2'
 gem 'puma', '~> 6.4', '>= 6.4.3'
 gem "jsbundling-rails"
 gem 'turbo-rails', '~> 2.0', '>= 2.0.11'
@@ -22,8 +23,9 @@ gem "bootsnap", require: false
 gem 'mini_magick', '~> 5.0', '>= 5.0.1'
 #gem "image_processing", "~> 1.12"
 gem 'tailwindcss-rails', '~> 3.0'
-gem 'pagy', '~> 9.1'
-gem 'administrate', '~> 0.20.1'
+#gem 'pagy', '~> 9.1.1'
+gem 'pagy', '~> 9.2'
+#gem 'pagy', '~> 8.6', '>= 8.6.3'
 gem 'devise', '~> 4.9', '>= 4.9.3'
 gem 'ancestry'
 gem 'jquery-rails', '~> 4.6'
@@ -44,10 +46,14 @@ gem 'friendly_id', '~> 5.5', '>= 5.5.1'
 #gem "friendly_id", "~> 5.4"
 gem "bcrypt"
 gem 'rqrcode', '~> 2.2'
+gem 'fuzzy_match', '~> 2.1'
+gem 'httpclient', '~> 2.8', '>= 2.8.3'
+gem 'sandbox', '~> 0.1.1'
+gem 'xcodeproj', '~> 1.26'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
-  gem 'brakeman', '~> 6.2', '>= 6.2.1'
+gem 'brakeman', '~> 6.2', '>= 6.2.2'
   #gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
 end
@@ -63,7 +69,7 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'minitest', '~> 5.23', '>= 5.23.1'
   gem 'minitest-reporters', '~> 1.6', '>= 1.6.1'
-  gem 'guard', '~> 2.18', '>= 2.18.1'
+  gem 'guard', '~> 2.19'
   gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
 end
 group :production do
