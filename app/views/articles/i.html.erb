@@ -23,3 +23,16 @@ data-label="Create list">
 Tag: <%= " Related count: (#{tag.articles.count}) " %>
 tag.to_s +
 <%= render @articles %>
+<% if @pagy.count > @pagy.items %>
+<div class="mt-10">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+<hr />
+<% end %>
+<% if @pagy.count > @pagy.items %>
+<hr />
+<div class="mt-1">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+<hr />
+<% end %>
