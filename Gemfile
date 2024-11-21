@@ -34,7 +34,7 @@ gem 'jquery-rails', '~> 4.6'
 #gem 'acts-as-taggable-on', '~> 10.0'
 #gem 'awesome_nested_set', '~> 3.6'
 gem 'administrate-rich-text'
-gem 'madmin', '~> 1.2', '>= 1.2.10'
+gem 'madmin', '~> 2.0'
 
 gem "appraisal"
 gem "byebug", group: [:development, :test]
