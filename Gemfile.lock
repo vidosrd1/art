@@ -218,7 +218,7 @@ GEM
     method_source (1.1.0)
     mini_magick (5.0.1)
     mini_mime (1.1.5)
-    minitest (5.25.1)
+    minitest (5.25.2)
     minitest-reporters (1.7.1)
       ansi
       builder
@@ -488,7 +488,7 @@ DEPENDENCIES
   jsbundling-rails
   madmin (~> 1.2, >= 1.2.10)
   mini_magick (~> 5.0, >= 5.0.1)
-  minitest (~> 5.23, >= 5.23.1)
+  minitest (~> 5.25)
   minitest-reporters (~> 1.6, >= 1.6.1)
   name_of_person (~> 1.1, >= 1.1.1)
   pagy (~> 9.2)
