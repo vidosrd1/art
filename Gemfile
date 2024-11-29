@@ -26,7 +26,7 @@ gem 'mini_magick', '~> 5.0', '>= 5.0.1'
 #gem "image_processing", "~> 1.12"
 gem 'tailwindcss-rails', '~> 3.0'
 #gem 'pagy', '~> 9.1.1'
-gem 'pagy', '~> 9.2'
+gem 'pagy', '~> 9.3'
 #gem 'pagy', '~> 8.6', '>= 8.6.3'
 gem 'devise', '~> 4.9', '>= 4.9.3'
 gem 'ancestry'
