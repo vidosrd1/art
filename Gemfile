@@ -7,7 +7,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 #gem "rails", "~> 7.2.0.beta2"
 #gem 'rails', '~> 7.2.1.1', '>= 7.2.1'
 #gem 'rails', '~> 7.2'
-gem "rails", "~> 8.0.0.rc2"
+gem "rails", "~> 8.0.1"
 #gem 'rails', '~> 7.2', '>= 7.2.2'
 #gem "sprockets-rails"
 gem 'sqlite3', '~> 2.2'
