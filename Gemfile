@@ -10,7 +10,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "rails", "~> 8.0.0.rc2"
 #gem 'rails', '~> 7.2', '>= 7.2.2'
 #gem "sprockets-rails"
-gem 'sqlite3', '~> 2.2'
+gem 'sqlite3', '~> 2.5'
 gem 'puma', '~> 6.4', '>= 6.4.3'
 gem "jsbundling-rails"
 gem 'turbo-rails', '~> 2.0', '>= 2.0.11'
