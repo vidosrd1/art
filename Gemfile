@@ -55,7 +55,7 @@ gem 'xcodeproj', '~> 1.26'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
-gem 'brakeman', '~> 6.2', '>= 6.2.2'
+gem 'brakeman', '~> 7.0'
   #gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
 end
