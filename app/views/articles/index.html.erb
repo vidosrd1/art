@@ -38,6 +38,11 @@
     </div>
   <% end %>
   <hr />
+  <% if @pagy.count > @pagy.items %>
+    <div class="mt-10">
+      <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
+  <% end %>
   <div id="articles" class="min-w-full">
     <% @articles.each do |article| %>
     <div class="row  mt-4 clearfix">
@@ -67,6 +72,11 @@
       </div>
       <%= link_to "Edit this article", edit_article_path(article) %>
     </div>
+    <% end %>
+    <% if @pagy.count > @pagy.items %>
+      <div class="mt-10">
+        <%== pagy_bootstrap_nav(@pagy) %>
+      </div>
     <% end %>
   </div>
   <hr />

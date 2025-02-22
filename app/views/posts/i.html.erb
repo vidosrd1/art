@@ -17,3 +17,9 @@ focus:ring-orange-100" %>
 <hr />
 <% end %>
 <%= render @posts %>
+<% if @pagy.count > @pagy.items %>
+<div class="mt-10">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+<hr />
+<% end %>

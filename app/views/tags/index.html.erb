@@ -63,7 +63,7 @@
               <a href="/articles/<%= article.id %>",
                 class="nav-link">
                 <%= truncate(strip_tags(article.title.to_s),
-                length:200) %></a>
+                length:60) %></a>
                 <hr />
               </li>
             <% end %>
