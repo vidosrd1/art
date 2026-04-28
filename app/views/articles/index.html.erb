@@ -18,7 +18,7 @@
     style:"width:560px; heigh:auto; nav-link; nav-right;"),
     @articles.first.image %>
   <% end %>
-  <hr />
+  <hr>
   <%= form_with(url: articles_path, method: :get,
   data: {controller: "search-form",
   turbo_frame: "articles", turbo_action: "advance"}) do |form| %>
@@ -37,8 +37,8 @@
       text-gray-900 hover:text-gray-100 focus:ring-orange-100" %>
     </div>
   <% end %>
-  <hr />
-  <% if @pagy.count > @pagy.items %>
+  <hr>
+  <% if @pagy.count > @pagy.limit %>
     <div class="mt-10">
       <%== pagy_bootstrap_nav(@pagy) %>
     </div>
